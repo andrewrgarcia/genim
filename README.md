@@ -14,6 +14,12 @@ pip install -r requirements-win.txt
 ```
 python gui.py
 ```
+## with flask run (no GUI)
+```
+export FLASK_APP=main
+export FLASK_ENV=development
+flask run -p 1234
+```
 
 # generate image
 insert prompt to create image

@@ -1,0 +1,5 @@
+Flask
+pycryptodome
+SecretStorage
+flaskwebgui
+openai
