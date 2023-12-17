@@ -20,21 +20,21 @@ def image_generator():
     imgsize = request.args.get('imgsize')
 
     #TO CREATE IMAGE FROM PROMPT
-    # response = openai.Image.create(
-    #     prompt=bot_input,
-    #     n=2,
-    #     size=imgsize
-    # )
+    response = openai.Image.create(
+        prompt=bot_input,
+        n=2,
+        size=imgsize
+    )
 
     #IF RECONSTRUCTING / FILLING BLANKS OF IMAGE
-    response = openai.Image.create_edit(
-    image=open("tree.png", "rb"),
-    mask=open("tree_mask.png", "rb"),
-    # prompt="A bear cyborg where the cyborg side, right, is a grey colored robot in the form of a bull animal",
-    prompt=bot_input,
-    n=2,
-    size=imgsize
-    )
+    # response = openai.Image.create_edit(
+    # image=open("tree.png", "rb"),
+    # mask=open("tree_mask.png", "rb"),
+    # # prompt="A bear cyborg where the cyborg side, right, is a grey colored robot in the form of a bull animal",
+    # prompt=bot_input,
+    # n=2,
+    # size=imgsize
+    # )
 
     #TO CREATE VARIATION OF IMAGE
     # response = openai.Image.create_variation(
