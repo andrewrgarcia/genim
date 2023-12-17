@@ -65,18 +65,22 @@ def index():
 #     return urls
 
 
+
+
+
 @app.route("/image_generator", methods=['GET'])
 def image_generator():
     print('hello?')
-    bot_input = request.get_json()['botinput']
-    imgsize = request.get_json()['imgsize']
-    method = request.get_json()['method']
+    # bot_input = request.get_json()['botinput']
+    # imgsize = request.get_json()['imgsize']
+    # method = request.get_json()['method']
 
     # print(bot_input)
-    # bot_input = request.args.get('botinput')
-    # imgsize = request.args.get('imgsize')
-    # method = request.args.get('method')
+    bot_input = request.args.get('botinput')
+    imgsize = request.args.get('imgsize')
+    method = request.args.get('method')
 
+    print(method)
     if method == 'create':
         response = openai.Image.create(
             prompt=bot_input,
@@ -93,7 +97,7 @@ def image_generator():
         )
     elif method == 'create_variation':
         response = openai.Image.create_variation(
-            image=open("img/craiyon_005000_Skyblock_Redstone_Creations.png", "rb"),
+            image=open("img/drawing.png", "rb"),
             n=2,
             size=imgsize
         )
