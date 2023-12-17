@@ -1,6 +1,7 @@
 build
 *.spec
 __pycache__/
+heavy/
 auth.py
 
 bear.png

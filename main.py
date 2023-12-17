@@ -26,56 +26,8 @@ def index():
     return render_template('index.html')
 
 
-# @app.route("/image_generator", methods=['GET'])
-# def image_generator():
-#     bot_input = request.args.get('botinput')
-#     imgsize = request.args.get('imgsize')
-
-#     #TO CREATE IMAGE FROM PROMPT
-#     # response = openai.Image.create(
-#     #     prompt=bot_input,
-#     #     n=2,
-#     #     size=imgsize
-#     # )
-
-#     #IF RECONSTRUCTING / FILLING BLANKS OF IMAGE
-#     response = openai.Image.create_edit(
-#     image=open("img/tree.png", "rb"),
-#     mask=open("img/tree_mask.png", "rb"),
-#     # prompt="A bear cyborg where the cyborg side, right, is a grey colored robot in the form of a bull animal",
-#     prompt=bot_input,
-#     n=2,
-#     size=imgsize
-#     )
-
-#     #TO CREATE VARIATION OF IMAGE
-#     # response = openai.Image.create_variation(
-#     # image=open("img/craiyon_005000_Skyblock_Redstone_Creations.png", "rb"),
-#     # n=2,
-#     # size=imgsize
-#     # )
-
-
-
-#     print("response", response)
-    
-#     image_url_1 = response['data'][0]['url']
-#     image_url_2 = response['data'][1]['url']
-#     urls={"url_1":image_url_1,"url_2":image_url_2}
-#     return urls
-
-
-
-
-
 @app.route("/image_generator", methods=['GET'])
 def image_generator():
-    print('hello?')
-    # bot_input = request.get_json()['botinput']
-    # imgsize = request.get_json()['imgsize']
-    # method = request.get_json()['method']
-
-    # print(bot_input)
     bot_input = request.args.get('botinput')
     imgsize = request.args.get('imgsize')
     method = request.args.get('method')
@@ -87,17 +39,17 @@ def image_generator():
             n=2,
             size=imgsize
         )
-    elif method == 'create_edit':
-        response = openai.Image.create_edit(
-            image=open("img/tree.png", "rb"),
-            mask=open("img/tree_mask.png", "rb"),
-            prompt=bot_input,
-            n=2,
-            size=imgsize
-        )
+    # elif method == 'create_edit':
+    #     response = openai.Image.create_edit(
+    #         image=open("img/tree.png", "rb"),
+    #         mask=open("img/tree_mask.png", "rb"),
+    #         prompt=bot_input,
+    #         n=2,
+    #         size=imgsize
+    #     )
     elif method == 'create_variation':
         response = openai.Image.create_variation(
-            image=open("img/drawing.png", "rb"),
+            image=open("img/lion.png", "rb"),
             n=2,
             size=imgsize
         )
