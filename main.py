@@ -1,10 +1,6 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 import openai
-from auth import KEY
 from flask_cors import CORS
-# from subprocess import Popen
-# Popen(["whisper/model.h5"])
-
 
 
 app = Flask(__name__)

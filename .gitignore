@@ -3,6 +3,3 @@ build
 __pycache__/
 heavy/
 auth.py
-
-bear.png
-mask.png
